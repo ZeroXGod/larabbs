@@ -40,4 +40,5 @@ class TopicRequest extends FormRequest
             'category_id' => '分类',
         ];
     }
+
 }
