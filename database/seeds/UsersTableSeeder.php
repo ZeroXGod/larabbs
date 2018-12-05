@@ -15,12 +15,8 @@ class UsersTableSeeder extends Seeder
         $faker = app(Faker\Generator::class);
 
         $avatars = [
-            'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/s5ehp11z6s.png?imageView2/1/w/200/h/200',
-            'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/Lhd1SHqu86.png?imageView2/1/w/200/h/200',
-            'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/LOnMrqbHJn.png?imageView2/1/w/200/h/200',
-            'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/xAuDMxteQy.png?imageView2/1/w/200/h/200',
-            'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/ZqM7iaP4CR.png?imageView2/1/w/200/h/200',
-            'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/NDnzMutoxX.png?imageView2/1/w/200/h/200',
+            'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3598550315,1737316217&fm=26&gp=0.jpg',
+            'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4136525384,1418599403&fm=26&gp=0.jpg',
         ];
 
         $users = factory(User::class)
@@ -39,7 +35,7 @@ class UsersTableSeeder extends Seeder
         $user = User::find(1);
         $user->name = 'Zero';
         $user->email = '812419396@qq.com';
-        $user->avatar = 'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/ZqM7iaP4CR.png?imageView2/1/w/200/h/200';
+        $user->avatar = 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4055590865,3391288759&fm=26&gp=0.jpg';
         $user->save();
 
         //初始化用户角色，将 1 号用户指派为『站长』
