@@ -45,7 +45,7 @@ class UsersController extends Controller
         // 缓存中是否存在对应的 key
         $verifyData = \Cache::get($request->verification_key);
 
-        if (!verifyData) {
+        if (!$verifyData) {
             return $this->response->error('验证码已失效', 422);
         }
 
@@ -77,6 +77,18 @@ class UsersController extends Controller
             'weapp_openid' => $data['openid'],
             'weixin_session_key' => $data['session_key'],
         ]);
+
+        // 清楚验证码缓存
+        \Cache::forget($request->verification_key);
+
+        // meta 中返回 Token 信息
+        return $this->response->item($user, new UserTransformer())
+            ->setMeta([
+                'access_token' => \Auth::guard('api')->fromUser($user),
+                'token_type' => 'Bearer',
+                'expires_in' => \Auth::guard('api')->factory()->getTTL() * 60
+            ])
+            ->setStatusCode(201);
     }
 
     public function update(UserRequest $request)
